@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block title %}Home Page{% endblock %} {% block content %}
+<br> {% block header %}
+<p class="title is-1 is-spaced has-text-centered captions">JOAQUIN GABRIEL FRANCO</p>
+<p class="subtitle is-5 has-text-centered">Aspiring engineer/programmer</p>
+{% endblock %}
+<div id="general">
+    <div class="accordionWrapper">
+        <div class="accordionItem open">
+            <h2 class="accordionItemHeading">Personal Background</h2>
+            <div class="accordionItemContent">
+                <p>
+                    I am Joaquin Gabriel "Chino" Franco, currently a Filipino international university student at Nagoya University. I am majoring in Mechanical Engineering, but I also have picked up self-taught Python as a hobby. When the pandemic struck in 2020, I used
+                    my quarantine days to learn more about the Python language and to pick up new projects with coding. I mainly specialize in backend-related development and programming.
+                </p>
+            </div>
+        </div>
+
+        <div class="accordionItem close">
+            <h2 class="accordionItemHeading">Accordion items</h2>
+            <div class="accordionItemContent">
+                <p>A JavaScript accordion is made up of a number of expandable/collapsible items. Only one item is ever shown at a time.</p>
+                <p>You can include any content you want inside an accordion item. Here's a bullet list:</p>
+                <ul>
+                    <li>List item #1</li>
+                    <li>List item #2</li>
+                    <li>List item #3</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="accordionItem close">
+            <h2 class="accordionItemHeading">How to use a JavaScript accordion</h2>
+            <div class="accordionItemContent">
+                <p>Click an accordion item's heading to expand it. To collapse the item, click it again, or click another item heading.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<br> {% endblock %}
