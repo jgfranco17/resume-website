@@ -1,0 +1,85 @@
+{% extends "base.html" %} {% block title %}Add a Task{% endblock %} {% block content %}
+<br> {% block header %}
+<h1 class="display-1 text-center chalet">New Task</h1>
+<br>
+{% endblock %}
+<div id="general">
+    <!-- Page content-->
+    <div class="container">
+        <form method="POST">
+            <div class="row">
+                <div class="mb-3">
+                    <label for="title-part" class="form-label h5">Task:</label>
+                    <textarea rows="3" onkeyup="charcountupdate(this.value)" class="form-control" type="text" placeholder="Task details" aria-label="task" name="task" id="task" maxlength="150"></textarea>
+                    <p class="text-muted">[Character count]: <span id="charcount">150 out of 150 characters</span></p>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Due date selection -->
+                <div class="mb-3 col-6">
+                    <label for="due-date" class="form-label h5">Due date:</label>
+                    <div class="row">
+                        <div class="mb-3 col-4">
+                            <select class="form-select" aria-label="Day select" id="day-select" name="day-select">
+                                {% for i in range(31) %}
+                                    <option value="{{ i + 1 }}">{{ i + 1 }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3 col-4">
+                            <select class="form-select" aria-label="Month select" id="month-select" name="month-select">
+                                {% for i in range(12) %}
+                                    <option value="{{ months[i] }}">{{ months[i] }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3 col-4">
+                            <select class="form-select" aria-label="Year select" id="year-select" name="year-select">
+                                {% for i in range(10) %}
+                                    <option value="{{ start_year+i }}">{{ start_year+i }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input form-switch-lg" type="checkbox" id="no-due" name="no-due" value="4">
+                        <label class="form-check-label" for="due">No due date</label>
+                    </div>
+                </div>
+                <!-- Priority check-->
+                <div class="mb-3 col-2">
+                    <label for="urgency" class="form-label h5">Priority</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="priority" id="low-priority" value="1" checked>
+                        <label class="form-check-label" for="low-priority">Low</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="priority" id="medium-priority" value="2">
+                        <label class="form-check-label" for="medium-priority">Medium</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="priority" id="high-priority" value="3">
+                        <label class="form-check-label" for="high-priority">High</label>
+                    </div>
+                </div>
+                <!-- Color selection -->
+                <div class="mb-3 col-2">
+                    <label for="color" class="form-label h5">Color:</label>
+                    <div class="mb-3">
+                        <select class="form-select" aria-label="Color" id="color" name="color">
+                            {% for color in colors %}
+                                <option value="{{ colors[color] }}" style="background-color: {{ colors[color] }}">{{ color }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="mb-3">
+                <a type="button" class="btn btn-outline-secondary" href="/home">Cancel</a>
+                <button type="submit" class="btn btn-success">Add Task</button>
+            </div>
+        </form>
+    </div>
+</div>
+<br> {% endblock %}

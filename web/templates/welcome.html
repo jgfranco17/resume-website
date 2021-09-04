@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="Chino Franco" />
+    <title>Welcome!</title>
+    <!-- Bootstrap & CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/custom.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-black text-white">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container px-5">
+            <a class="navbar-brand reprise" href="#">The {{ site_name }}</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <ul class="nav nav-pills nav-fill">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/login">Sign in</a>
+                </li>
+                <li class="nav-item">
+                    <a type="button" class="btn btn-success" aria-current="page" href="/register">Create account</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Page Content -->
+    <div class="container px-4 px-lg-5">
+        <!-- Heading Row-->
+        <div class="row gx-4 gx-lg-5 align-items-center my-5">
+            <div class="col-lg-7"><img class="img-fluid rounded mb-5 mb-lg-0" src="{{url_for('static', filename='img/workspace.svg')}}" alt="Workers huddled at table" /></div>
+            <div class="col-lg-5">
+                <!-- Theme color: #1B6FBC -->
+                <p class="lead">Welcome to</p>
+                <h1 class="display-4 lovelo text-neon">{{ site_name }}</h1>
+                <p class="nrt">
+                    Here at {{ site_name }}, we aim to give people working or studying from home a space to get productive. Track your tasks, pace your work, and monitor your progress!
+                    Theres's so much to help you get the job done here at {{ site_name }}!
+                </p>
+                <button type="submit" class="button-arrow" onclick="window.location.href='/login'"><span class="roboto-condensed arrow-text">Start Working!</span></button>
+            </div>
+        </div>
+        <hr class="featurette-divider mb-3">
+        <div class="container text-center mb-3">
+            <h3 class="display-3">Do more with {{ site_name }}</h3>
+        </div>
+        <!-- Content Row-->
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-md-4 mb-5">
+                <div class="card h-100 bg-shaded">
+                    <img src="{{ url_for('static', filename='img/busy.svg') }}" class="card-img-top" alt="Man busy working and tracking tasks">
+                    <div class="card-body">
+                        <h2 class="card-title reprise">Track</h2>
+                        <p class="card-text nrt">
+                            Never miss a deadline with our task-tracking systems! Keep yourself up-to-date with our to-do list task organizer. Tag tasks by color, priority, and due date.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="card h-100 bg-shaded">
+                    <img src="{{ url_for('static', filename='img/studypair.svg') }}" class="card-img-top" alt="Man and student studying on laptop">
+                    <div class="card-body">
+                        <h2 class="card-title reprise">Study</h2>
+                        <p class="card-text nrt text-justify">
+                            Get your
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="card h-100 bg-shaded">
+                    <img src="{{ url_for('static', filename='img/math.svg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h2 class="card-title reprise">Focus</h2>
+                        <p class="card-text nrt text-justify">
+                            Stay on track with our different focus tools! Pace yourself as you work with our Pomodoro timer. Keep yourself in the groove with our built-in lightweight music player.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container px-4 px-lg-5">
+            <p class="m-0 text-center text-orange">Copyright &copy; {{ site_name }} 2021</p>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    <!-- Core theme JS-->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+
+</html>

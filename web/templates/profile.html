@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+    {% block header %}
+        <header class="py-5 bg-light border-bottom mb-4">
+            <div class="row my-5">
+                <div class="col-2 text-center">
+                    <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ url_for('static', filename='img/programmer.svg') }}" alt="Profile picture of {{ user.username }}" />
+                </div>
+                <div class="col-10">
+                    <h1 class="display-1 saira-condensed">{{ user.firstname.upper() }} {{ user.lastname.upper() }}</h1>
+                    <div class="row">
+                        <ul class="list-unstyled mb-0">
+                            <li><i class="fas fa-user-tag"></i> {{ user.username }}<li>
+                            <li><i class="fa fa-envelope"></i> {{ user.email }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+    {% endblock %}
+    <div class="container">
+        <div class="row mb-5">
+            <!-- Blog entries-->
+            <div class="col-lg-8">
+                <h3 class="mb-3">My contents</h3>
+                {% for task in tasks %}
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <div class="col-8">
+                                <h5 class="reprise">Due on {{ task.due_date }}</h5>
+                            </div>
+                            <div class="col-4">
+                                {% if task.priority == 1 %}
+                                <span class="badge rounded-pill bg-success">Low</span>
+                                {% endif %}
+                                {% if task.priority == 2 %}
+                                    <span class="badge rounded-pill bg-warning">Medium</span>
+                                {% endif %}
+                                {% if task.priority == 3 %}
+                                    <span class="badge rounded-pill bg-danger">High</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="card-body" style="background-color: {{ task.color }}">
+                            <p class="card-text lead">{{ task.task }}</p>
+                            <!-- Modal -->
+                            <div class="modal fade" id="deleteWarnModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header bg-success text-light">
+                                            <h6 class="modal-title" id="delete-modal-title">Delete Confirmation</h6>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p><strong>Are you sure you want to delete this task?</strong></p>
+                                            <p class="text-muted mb-4"><small>This change is permanent, deleted posts cannot be retrieved.</small></p>
+                                            <p><strong>Created on: </strong>{{ task.date_created.strftime("%d %B %Y") }}</p>
+                                            <p><strong>Due date: </strong>{{ task.due_date }}</p>
+                                            <p><strong>Task details:</strong><br>{{ task.task }}</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <a href="/delete-post/{{ task.id }}" class="btn btn-danger">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteWarnModal">
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- Side widgets-->
+            <div class="col-lg-4">
+                <!-- Side widget-->
+                <div class="card mb-4">
+                    <div class="card-header">Clock</div>
+                    <div class="card-body">
+                        <p class="lead">It is now <span id="clock">00:00</span></p>
+                    </div>
+                </div>
+                <!-- Stats widget-->
+                <div class="card mb-4">
+                    <div class="card-header">User Info</div>
+                    <div class="card-body">
+                        <ul class="list-unstyled mb-0">
+                            <li>Member since <strong>{{ user.date_created.strftime('%d %B %Y') }}</strong><li>
+                            <li>You have <strong>{{ task_count }}</strong> tasks pending</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Search widget-->
+                <div class="card mb-4">
+                    <div class="card-header">Search</div>
+                    <div class="card-body">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                            <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Side widget-->
+                <div class="card mb-4">
+                    <div class="card-header">Side Widget</div>
+                    <div class="card-body">Content</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <script src="{{ url_for('static', filename='js/clock.js') }}"></script>
+{% endblock %}

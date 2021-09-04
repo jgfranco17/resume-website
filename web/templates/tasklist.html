@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Task list{% endblock %}
+{% block content %}
+    <br> {% block header %}
+    <h1 class="display-1 text-center">My Page</h1>
+    <br>
+    {% endblock %}
+    <hr class="featurette-divider">
+    <div id="general">
+        <!-- Page content-->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <p class="lead">No content yet</p>
+                    <div class="bootstrap-iso">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    {% for i in range(10) %}
+                                        <p class="lead">Task {{i}}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Side widgets-->
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-header">Side Widget</div>
+                        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header">Side Widget</div>
+                        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header">Side Widget</div>
+                        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+{% endblock %}

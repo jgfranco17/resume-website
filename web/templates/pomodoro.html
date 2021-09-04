@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Pomodoro{% endblock %}
+{% block content %}
+    {% block header %}
+        <br>
+        <h1 class="display-1 text-center chalet">Pomodoro Task</h1>
+        <br>
+    {% endblock %}
+    <hr class="featurette-divider">
+    <div id="general" class="text-center">
+        <!-- Page content-->
+        <h2 class="lovelo">Timer will end in</h2>
+        <p id="timer" class = "lovelo text-warning display-1" >25:00</p>
+        <button id="start-button" class="btn btn-outline-success btn-lg">Start Countdown</button>
+        <button id="reset-button" class="btn btn-outline-danger btn-lg">Stop &amp; Reset</button>
+    </div>
+    <br>
+{% endblock %}
